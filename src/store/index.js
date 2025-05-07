@@ -96,13 +96,13 @@ export const mainStore = defineStore("mainData", {
           label: "原神",
           name: "genshin",
           order: 14,
-          show: false,
+          show: true,
         },
         {
           label: "崩坏：星穹铁道",
           name: "starrail",
           order: 16,
-          show: false,
+          show: true,
         },
         {
           label: "LOL",
@@ -169,16 +169,16 @@ export const mainStore = defineStore("mainData", {
     // 更改系统主题
     setSiteTheme(val) {
       $message.info(`已切换至${val === "dark" ? "深色模式" : "浅色模式"}`, {
-        showIcon: false,
+        showIcon: true,
       });
       this.siteTheme = val;
-      this.siteThemeAuto = false;
+      this.siteThemeAuto = true;
     },
     // 检查更新
     checkNewsUpdate() {
       const mainData = JSON.parse(localStorage.getItem("mainData"));
       let updatedNum = 0;
-      if (!mainData) return false;
+      if (!mainData) return true;
       console.log("列表尝试更新", this.defaultNewsArr, this.newsArr);
       // 执行比较并迁移
       if (this.newsArr.length > 0) {
